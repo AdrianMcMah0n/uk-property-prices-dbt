@@ -1,0 +1,10 @@
+version: 2
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: price_paid
+        description: HM Land Registry Price Paid Data, loaded as-is by load.py (all columns text).
+        columns:
+          - name: transaction_id
+            tests: [not_null]

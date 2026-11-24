@@ -1,0 +1,17 @@
+version: 2
+models:
+  - name: fct_sales
+    description: Standard residential sales, one row per transaction.
+    columns:
+      - name: transaction_id
+        tests: [unique, not_null]
+  - name: mart_monthly_prices
+    description: Median and mean price per month and property type.
+    tests:
+      - unique_combination:
+          columns: [sale_month, property_type]
+  - name: mart_county_prices
+    description: Sales, median price and mix per county.
+    columns:
+      - name: county
+        tests: [unique, not_null]

@@ -1,0 +1,6 @@
+requests>=2.31
+psycopg[binary]>=3.1
+pandas>=2.0
+openpyxl>=3.1
+dbt-core==1.9.*
+dbt-postgres==1.9.*

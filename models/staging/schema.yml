@@ -1,0 +1,21 @@
+version: 2
+models:
+  - name: stg_price_paid
+    description: Typed and decoded sales, latest version of each transaction, deletions removed.
+    columns:
+      - name: transaction_id
+        tests: [unique, not_null]
+      - name: price_gbp
+        tests: [not_null]
+      - name: sale_date
+        tests: [not_null]
+      - name: property_type
+        tests:
+          - accepted_values:
+              values: ['Detached', 'Semi-detached', 'Terraced', 'Flat / maisonette', 'Other']
+      - name: tenure
+        tests:
+          - accepted_values:
+              values: ['Freehold', 'Leasehold', 'Unknown']
+      - name: county
+        tests: [not_null]
